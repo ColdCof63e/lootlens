@@ -1,11 +1,11 @@
-import { Stack } from "expo-router";
-import "../global.css";
+import { Tabs } from 'expo-router';
 
-export default function RootLayout() {
+export default function TabLayout() {
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="(tabs)" />
-      <Stack.Screen name="modal" options={{ presentation: "modal" }} />
-    </Stack>
-  );
+    <Tabs screenOptions={{ headerShown: false, tabBarStyle: {backgroundColor: "#000"}}}>
+      <Tabs.Screen name='map' options={{title: "Map"}}/>
+      <Tabs.Screen name='pulse' options={{title: "Pulse"}}/>
+      <Tabs.Screen name='profile' options={{title: "Profile"}}/>
+    </Tabs>
+  )
 }
