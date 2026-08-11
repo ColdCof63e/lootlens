@@ -1,5 +1,5 @@
 import React from "react";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { darkMapStyle } from "../../../constants/MapStyle";
 
@@ -12,13 +12,21 @@ export default function MapScreen() {
         provider={PROVIDER_GOOGLE}
         style={styles.map}
         customMapStyle={darkMapStyle}
+        showsUserLocation={true}
+        showsMyLocationButton={true}
         initialRegion={{
           latitude: 43.6532,
           longitude: -79.3832,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
-      />
+      >
+        {/* Sample Gameplay Loot Marker */}
+        <Marker
+        coordinate={{latitude: 43.6552, longitude: -79.3852}}
+        title="Loot Drop #1"
+        description="Rare item node detected"/>
+      </MapView>
     </SafeAreaView>
   );
 }
